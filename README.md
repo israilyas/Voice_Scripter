@@ -2,7 +2,7 @@
 
 Voice Scripter is a simple application that allows users to convert text to speech and speech to text using Python. This repository provides a graphical user interface (GUI) built with Tkinter, leveraging the pyttsx3 library for text-to-speech conversion and the SpeechRecognition library for speech-to-text functionality.
 
-## ScreenShots
+## Output
 
 
 <img width="494" alt="vS1" src="https://github.com/israilyas/Voice_Scripter/assets/146584634/8db1e043-c638-43bf-9190-b603fbeed10e">
