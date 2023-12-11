@@ -75,8 +75,8 @@ def download():
         else:
             engine.setProperty('rate', 60)
 
-        engine.say(text)
-        engine.runAndWait()  
+        # engine.say(text)
+        # engine.runAndWait()  
 
 
 
@@ -116,10 +116,6 @@ def speech_to_text():
 # GUI
 root = Tk()
 
-#icon
-mic_image = Image.open("micbutton (1).png")
-mic_btn = ImageTk.PhotoImage(mic_image)
-
 # COLORS
 background="#06283D"   
 framebg="#EDEDED"
@@ -135,21 +131,14 @@ root.config(bg=background)
 root.title("Voice Scripter")
 root.resizable(FALSE,FALSE)
 
-#icon image
-img_icon = PhotoImage(file="icons8-mic-94.png")
-root.iconphoto(FALSE,img_icon)
-
 #TOP FRAME 
 top_frame = Frame(root , bg="white" , width=655  , height=65)
 top_frame.pack()
 
-logo = PhotoImage(file="micbutton (1).png")
-Label(top_frame, image=logo, bg="white").place(x=10, y=5)
-
 def tab1():
     def Text_to_Voice():
         global input_text    # Declare entry as a global variable
-        global speed_combobox    # Declare entry as a global variable
+        global speed_combobox    
         global gender_combobox
         global speak_button
         label1.destroy()
@@ -175,7 +164,7 @@ def tab1():
 
        
         Text_to_Voice_label = Label(top_frame , text="Text to Voice Converter" , font="arial 20 bold" , bg="white" , fg=background)
-        Text_to_Voice_label.place(x=70 ,y=15)
+        Text_to_Voice_label.place(x=150 ,y=15)
 
         input_label =Label(root ,text="Type Text here:", font="Helvetica 10 bold" , bg=background , fg="white")
         input_label.place(x=60 , y=90 )
@@ -206,11 +195,8 @@ def tab1():
         speed_combobox.set("Normal")
 
         #speak button
-        speak_img = ImageTk.PhotoImage(file="voice-on-01.png")
-
         speak_button = Button(  text="Speak", font=("arial", 12),command=text_to_speech, activebackground=activebackground , width=9,fg=text_color ,bg=button_color)
         speak_button.place(x=400 , y=200 )
-        # speak_button.place(x=430 , y=200 )
 
         #SAVE BUTTON 
         save_button = Button(  text="Save", font=("arial", 12), activebackground=activebackground ,bg=button_color, width=9,fg=text_color , command=download )
@@ -239,7 +225,7 @@ def tab1():
 
         
         Voice_to_Text_label = Label(top_frame , text="Voice To Text Converter" , font="arial 20 bold" , bg="white" , fg=background)
-        Voice_to_Text_label.place(x=70 ,y=15)
+        Voice_to_Text_label.place(x=150 ,y=15)
 
         #Speak buttn
         speak_button = Button(text="Speak" ,command=speech_to_text, font=("Helvetica", 14), bg=button_color, fg=text_color , activebackground=activebackground , relief=RAISED)
@@ -253,18 +239,18 @@ def tab1():
         Voice_to_Text_buttonback.pack(side=BOTTOM, pady=20)    
 
     label1 = Label(top_frame , text="Welcome To Voice Scripter" , font="arial 20 bold" , bg="white" , fg=background)
-    label1.place(x=70 ,y=15)
+    label1.place(x=150 ,y=15)
 
     label2 = Label(root, text='Please Select Anyone:', font=("Helvetica", 16, "bold"), padx=10, pady=5, fg=text_color, bg=background)
-    label2.pack(pady=10)
+    label2.place(x=190 , y=140)
 
     button1 = Button(root, text="Voice to Text Converter", font=("Helvetica", 14), activebackground=activebackground,
                      command=Voice_to_Text, padx=10, bg=button_color, fg=text_color)
-    button1.pack(pady=10)
+    button1.place(x=200, y=200)
 
     button2 = Button(root, text="Text to Voice Converter", font=("Helvetica", 14), activebackground=activebackground,
                      command=Text_to_Voice, padx=10, bg=button_color, fg=text_color)
-    button2.pack(pady=10)
+    button2.place(x=200, y=250)
 
 # Call the function to initialize the GUI
 tab1()
